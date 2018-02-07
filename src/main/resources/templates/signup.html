@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<style>
+			body {font-family: Arial;}
+			* {box-sizing: border-box}
+			
+			
+			input[type=text], input[type=password] {
+			    width: 50%;
+			    padding: 15px;
+			    margin: 15px 0 15px 0;
+			    display: inline-block;
+			    border: none;
+			    
+			}
+			
+			input[type=text]:focus, input[type=password]:focus {
+			    background-color: #ddd;
+			    outline: none;
+			}
+			
+			
+			button {
+			    background-color: #4CAF50;
+			    color: white;
+			    padding: 14px 20px;
+			    margin: 20px 0;
+			    border: none;
+			    cursor: pointer;
+			    width: 50%;
+			    opacity: 0.9;
+			}
+			
+			button:hover {
+			    opacity:1;
+			}
+			
+			
+			.signupbtn {
+			  float: left;
+			  width: 50%;
+			}
+			
+			
+			.container {
+			    padding: 156px 300px;
+			}
+			
+			
+			.clearfix::after {
+			    content: "";
+			    clear: both;
+			    display: table;
+			}
+			
+			@media screen and (max-width: 300px) {
+			    span.psw {
+			       display: block;
+			       float: none;
+			    }
+			    .cancelbtn {
+			       width: 100%;
+			    }
+			}
+		</style>	
+	</head>
+	<body>
+		
+		<form action="#" th:action="@{/signup}" method="post" 
+			th:object="${registration}" style="border:1px solid #ccc">
+		  <div class="container">
+		    <h2 th:text="${title}"></h2>    
+		    <input type="text" placeholder="Employee Name" name="EmpName" th:field="*{empName}" />
+		    <hr/>
+		    <input type="text" placeholder="Employee Number" name="EmpNumber" th:field="*{emplNo}" />
+		    <hr/>
+		    <input type="password" placeholder="Password" name="pwd" th:field="*{password}" />
+		    <hr/>
+		    <input type="text" placeholder="Designation" name="Desig" th:field="*{designation}"/>
+		    <hr/>
+		    <input type="text" placeholder="Service Line" name="Sl" th:field="*{sL}"/>
+		    <hr/>
+		    <input type="text" placeholder="Role" name="Role" th:field="*{role}"/>
+		    <hr/>
+		    <div class="clearfix">
+		        <button type="submit" class="signupbtn">Sign Up</button>
+		    </div>
+		  </div>
+		</form>	
+			
+	</body>
+	
+</html>

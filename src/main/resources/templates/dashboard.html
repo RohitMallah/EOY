@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<style>
+			form {
+			    border: 3px solid #f1f1f1;
+			}		
+			button {
+			    background-color: #0000FF;
+			    color: white;
+			    padding: 14px 20px;
+			    margin: 0 8px;
+			    border: none;
+			    cursor: pointer;
+			    width: 25%;
+			    float: right;
+			}
+			
+			button:hover {
+			    opacity: 0.8;
+			}
+			
+			.container {
+			    padding: 16px;
+			}
+			
+			span.psw {
+			    float: right;
+			    padding-top: 16px;
+			}
+			
+			/* Change styles for span and cancel button on extra small screens */
+			@media screen and (max-width: 300px) {
+			    span.psw {
+			       display: block;
+			       float: none;
+			    }
+			    .cancelbtn {
+			       width: 100%;
+			    }
+			}
+		</style>	
+	</head>
+	
+	
+	
+	<body>
+		
+		<div class="container">
+	
+		<div class="panel container panel-primary">
+			<div class="panel-header">
+				<div class="col-md-6">
+					<h2>Employee Information</h2>
+				</div>
+			
+				
+				
+			</div>
+			<div class="panel-body">
+				<table class="table table-bordered">
+         <thead>
+         <tr>
+             <th style="background-color:black;color:white">SERIAL NO. </th>
+             <th style="background-color:black;color:white">EMPLOYEE ID</th>
+             <th style="background-color:black;color:white">EMPLOYEE NAME</th>
+             <th style="background-color:black;color:white">DESIGNATION</th>
+             <th style="background-color:black;color:white">SERVICE LINE</th>
+             <th style="background-color:black;color:white">ROLE</th>
+         </tr>
+         </thead>
+                <tbody>
+
+                    <tr th:each="user : ${users}">
+                    <td th:text="${user.getiD()}"> </td>
+                    <td th:text="${user.getUserName()}"> </td>
+                    <td th:text="${user.getProfile().name}"> </td>
+                    <td th:text="${user.getProfile().designation}"> </td>
+                    <td th:text="${user.getProfile().serviceLine}"> </td>
+                    <td th:text="${user.getProfile().role}"> </td>
+                    </tr>   
+
+                </tbody>
+			</table>
+					
+			</div>
+		 </div>
+		 	<div class="panel-footer">
+					<a href="logout">SIGN OUT</a>
+				</div>
+				
+			</div>
+		
+	</body>
+</html>
